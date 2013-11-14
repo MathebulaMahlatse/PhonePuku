@@ -1,0 +1,24 @@
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes.dex : \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\BrowseActivity$1.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\BrowseActivity$2.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\BrowseActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\BrowseSelectedActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\BuildConfig.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\HistoryActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\MainActivity$1.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\MainActivity$2.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\MainActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$attr.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$dimen.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$drawable.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$id.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$layout.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$menu.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$string.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$style.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity$1.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity$TextCapitalizeResultReceiver.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\service\MyServices.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\dexedLibs\android-support-v4-482339d7a9192054841718d89a18798a.jar \

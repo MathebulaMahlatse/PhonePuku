@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#f2fbfa"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".BrowseActivity" >
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="7dp"
+        android:paddingLeft="5dip">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/soccer"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/header"/>  
+    </RelativeLayout>  
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">       
+        
+        <ImageView
+            android:id="@+id/showsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/soccer"
+            android:scaleType="fitCenter"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_menu_search"/>        
+          
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_toRightOf="@id/showsearch"
+            android:layout_width="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent"
+            android:hint="@string/search_here"
+            android:textColor="#21dbd4"
+            android:background="@drawable/background_edit"
+            android:inputType="textVisiblePassword"/>
+    </RelativeLayout> 
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">                
+        <TextView
+            android:text="@string/contacts"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dip"
+            android:paddingLeft="1dip"
+            android:textSize="22sp"
+            android:background="#ffdbaa"
+            android:textColor="#5683d1"
+            android:textStyle="bold"
+            style="?android:attr/listSeparatorTextViewStyle" />
+        
+        <!-- Main ListView 
+                                                      		 Always give id value as list(@android:id/list)
+       	-->
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="2dp"
+            tools:ignore="PxUsage" />
+    
+    </LinearLayout>
+    
+
+</LinearLayout>
