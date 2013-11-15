@@ -4,22 +4,24 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import com.phonepuku.service.MyServices;
+import com.phonepuku.functions.Initialisation;
 
 public class HistoryActivity extends Activity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_history);
-		
+    Initialisation initialisaton = new Initialisation();
 
-		Intent intent = getIntent();
-		String callHistory = intent.getStringExtra(MyServices.OUTPUT_TEXT);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_history);
+
+
+        Intent intent = getIntent();
+        initialisaton.callHistory = intent.getStringExtra(initialisaton.KEY_STRING);
         // Get reference of the textView in the current layout
         TextView textView = (TextView) findViewById(R.id.call);
-        
+
         // Set text to the layout
-        textView.setText(callHistory);
-	}
+        textView.setText(initialisaton.callHistory);
+    }
 }

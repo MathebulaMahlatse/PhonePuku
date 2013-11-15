@@ -16,7 +16,7 @@ C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\callhistory.png \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\gradient_bg.xml \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\gradient_bg_hover.xml \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\header.png \
-C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\icon.jpg \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\icon.png \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\ic_launcher.png \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\ic_menu_search.png \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\res\drawable-mdpi\list_divider.xml \

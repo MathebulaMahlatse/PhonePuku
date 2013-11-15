@@ -18,7 +18,9 @@ C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$s
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R$style.class \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\R.class \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity$1.class \
-C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity$TextCapitalizeResultReceiver.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity$TextReceiver.class \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\activities\SplashActivity.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\functions\Functions.class \
+C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\functions\Initialisation.class \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\classes\com\phonepuku\service\MyServices.class \
 C:\Users\Mathebula_WM\Desktop\PhonePuku\bin\dexedLibs\android-support-v4-482339d7a9192054841718d89a18798a.jar \

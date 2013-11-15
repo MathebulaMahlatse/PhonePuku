@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import com.phonepuku.functions.Initialisation;
 
 /**
  *
@@ -12,8 +13,7 @@ import android.widget.TextView;
 
 public class BrowseSelectedActivity extends Activity {
 
-	// use KEY_CONTACT as KEY in hashMap
-    static final String KEY_CONTACT = "contact";
+	Initialisation initialisaton = new Initialisation();
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class BrowseSelectedActivity extends Activity {
         Intent intent = getIntent();
         
         // Get String from the intent
-        String SelectedContact = intent.getStringExtra(KEY_CONTACT);
+        String SelectedContact = intent.getStringExtra(initialisaton.KEY_CONTACT);
         
         // Get reference of the textView in the current layout
         TextView textView = (TextView) findViewById(R.id.call);

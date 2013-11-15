@@ -1,74 +1,54 @@
 package com.phonepuku.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-
 import android.app.IntentService;
 import android.content.Intent;
 import android.database.Cursor;
 import android.provider.CallLog;
-import com.phonepuku.activities.SplashActivity.TextCapitalizeResultReceiver;
+import com.phonepuku.functions.Functions;
+import com.phonepuku.functions.Initialisation;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 /**
  * @author Mathebula_WM
  *
  */
 public class MyServices extends IntentService {
-
-    public static final String OUTPUT_TEXT = "OUTPUT_TEXT";
-    public static final String OUTPUT_TEXT_2 = "OUTPUT_TEXT_2";
-    public static final String OUTPUT_TEXT_3 = "OUTPUT_TEXT_3";
-    /*
-     * Create a new Object
-     * This ArrayList holds phone Numbers
-     */
-    static ArrayList<String> arrayList;
-    static HashMap<String, ArrayList<String>> map;
-
-    /**
-     * initiate service in background thread with service name
-     */
+    
     public MyServices() {
         super(MyServices.class.getSimpleName());
     }
+    
+    Functions functions = new Functions();
+    Initialisation initialisaton = new Initialisation();
 
     @Override
     protected void onHandleIntent(Intent intent) {
         // get call history
-        String callHistory = getCallDetails();
+         initialisaton.callHistory = getCallDetails();
 
         /* create new intent to broadcast our processed data to our activity */
-        Intent broadcast = new Intent();
+        initialisaton.intent = new Intent();
 
         /* set action here */
-        broadcast.setAction(TextCapitalizeResultReceiver.ACTION_TEXT_CAPITALIZED);
+        initialisaton.intent.setAction(initialisaton.ACTION_TEXT_CAPITALIZED);
 
         /* set intent category as default */
-        broadcast.addCategory(Intent.CATEGORY_DEFAULT);
+        initialisaton.intent.addCategory(Intent.CATEGORY_DEFAULT);
 
         /* add data to intent */
-        broadcast.putExtra(OUTPUT_TEXT, callHistory);
-        broadcast.putExtra(OUTPUT_TEXT_2, arrayList);
-        broadcast.putExtra(OUTPUT_TEXT_3, map);
+        initialisaton.intent.putExtra(initialisaton.KEY_STRING, initialisaton.callHistory);
+        initialisaton.intent.putExtra(initialisaton.KEY_ARRAYLIST, initialisaton.arrayList);
+        initialisaton.intent.putExtra(initialisaton.KEY_HASHMAP, initialisaton.map);
 
         /* send broadcast */
-        sendBroadcast(broadcast);
+        sendBroadcast(initialisaton.intent);
 
     }
 
     private String getCallDetails() {
-        /*
-         * Create a new Object This ArrayList Holds an ArrayList
-         */
-        ArrayList<ArrayList<String>> listOfArray = new ArrayList<ArrayList<String>>();
-        /*
-         * Create a new Object This ArrayList Holds contacts information
-         */
-        ArrayList<String> callDetails = new ArrayList<String>();
-
-        // String buffer to hold Strings to display in the layout
-        StringBuilder sb = new StringBuilder();
+       
         // A cursor to hold call logs
         Cursor managedCursor = getContentResolver().query(
                 CallLog.Calls.CONTENT_URI, null, null, null, null);
@@ -112,25 +92,25 @@ public class MyServices extends IntentService {
                     break;
             }
             // Add phone number to the ArrayList
-            callDetails.add(phNumber);
+            initialisaton.callDetails.add(phNumber);
             // Check whether the name is null
             if (nameType != null) {
                 // Add the name to the ArrayList
-                callDetails.add(nameType);
+                initialisaton.callDetails.add(nameType);
             } else {
                 // Add "Uknown" to the ArrayList
-                callDetails.add("Unknown");
+                initialisaton.callDetails.add("Unknown");
             }
             // Add time to the ArrayList
-            callDetails.add(callDuration);
+            initialisaton.callDetails.add(callDuration);
             // Add String Date to the ArrayList
-            callDetails.add(callDayTime.toString());
+            initialisaton.callDetails.add(callDayTime.toString());
             // Add call type to the ArrayList
-            callDetails.add(dir);
+            initialisaton.callDetails.add(dir);
             // Add ArrayList to the ArrayList
-            listOfArray.add(callDetails);
+            initialisaton.listOfArray.add(initialisaton.callDetails);
             // Create a new object
-            callDetails = new ArrayList<String>();
+            initialisaton.callDetails = new ArrayList<String>();
         }
         // Close the cursor
         managedCursor.close();
@@ -145,46 +125,38 @@ public class MyServices extends IntentService {
         String lastCall = "";
 
         /*
-         * Create a new Object This ArrayList holds phone numbers
-         */
-        ArrayList<String> phonenumbers = new ArrayList<String>();
-
-        /*
          * Create a new Object
          * The map to hold phone numbers as a key and call history details as value
          */
-        map = new HashMap<String, ArrayList<String>>();
+        initialisaton.map = new HashMap<String, ArrayList<String>>();
 
-        arrayList = new ArrayList<String>();
-
-        ArrayList<String> array1 = new ArrayList<String>();
-        ArrayList<String> array2 = new ArrayList<String>();
+        initialisaton.arrayList = new ArrayList<String>();
 
         // Loop through the ArrayList holding contact information as ArrayList
-        for (int i = 0; i < listOfArray.size(); i++) {
+        for (int i = 0; i < initialisaton.listOfArray.size(); i++) {
             /*
              * Create a new Object Store elements of the old ArrayList to the
              * new ArrayList
              */
-            ArrayList<String> callDetail = listOfArray.get(i);
+            ArrayList<String> callDetail = initialisaton.listOfArray.get(i);
             /*
              * Create a new Object Store phone number from the ArrayList
              */
             String phoneNumber = callDetail.get(0);
             // Check whether the phone number already exists in the ArrayList of
             // phone Numbers
-            if (phonenumbers.contains(phoneNumber)) {
+            if (initialisaton.phonenumbers.contains(phoneNumber)) {
                 // Do nothing
             } else {
                 // Add the phone number to the ArrayList
-                phonenumbers.add(phoneNumber);
+                initialisaton.phonenumbers.add(phoneNumber);
                 // Loop through the ArrayList
-                for (int j = 0; j < listOfArray.size(); j++) {
+                for (int j = 0; j < initialisaton.listOfArray.size(); j++) {
                     /*
                      * Create a new Object Store elements of the old ArrayList
                      * to the new ArrayList
                      */
-                    ArrayList<String> callDetail2 = listOfArray.get(j);
+                    ArrayList<String> callDetail2 = initialisaton.listOfArray.get(j);
                     // Get phone number from the ArrayList
                     String phoneNumberCompare = callDetail2.get(0);
                     // Compare, check if the phone number repreats its self in
@@ -221,19 +193,19 @@ public class MyServices extends IntentService {
                 }
 
                 // Append to the String Buffer
-                sb.append("\nPhone number: " + phoneNumber + " \nName: "
+                initialisaton.sb.append("\nPhone number: " + phoneNumber + " \nName: "
                         + contactName + " \nIncoming calls: " + incoming
                         + " \nOutgoing calls: " + outcoming
                         + " \nMissed calls: " + missed
                         + " \nLast call in sec: " + lastCallInSec
                         + " \nCall duration in sec: " + seconds
                         + "\nLast call: " + lastCall);
-                sb.append("\n----------------------------------");
+                initialisaton.sb.append("\n----------------------------------");
 
                 //arrayList.add(phoneNumber);
-                arrayList.add(contactName + " " + phoneNumber);
-                array1.add(contactName);
-                array2.add(phoneNumber);
+                initialisaton.arrayList.add(contactName + " " + phoneNumber);
+                initialisaton.array1.add(contactName);
+                initialisaton.array2.add(phoneNumber);
 
                 ArrayList<String> list = new ArrayList<String>();
                 list.add(phoneNumber);
@@ -244,7 +216,7 @@ public class MyServices extends IntentService {
                 list.add(Integer.toString(seconds));
                 list.add(Integer.toString(lastCallInSec));
                 list.add(lastCall.toString());
-                map.put(contactName + " " + phoneNumber, list);
+                initialisaton.map.put(contactName + " " + phoneNumber, list);
 
                 // Initialize to ZERO
                 incoming = 0;
@@ -255,28 +227,26 @@ public class MyServices extends IntentService {
             }
         }
 
-        String Array1[] = new String[array1.size()];
-        for (int i = 0; i < Array1.length; i++) {
-            Array1[i] = array1.get(i);
-        }
+        // Initialize Array of Strings
+        String Array1[] = new String[initialisaton.array1.size()];
+        String Array2[] = new String[initialisaton.array2.size()];        
+        
+        /*
+         * Copy ArrayList to String[]
+         */
+        functions.copyArrayListToStringArray(Array1, initialisaton.array1);
+        functions.copyArrayListToStringArray(Array2, initialisaton.array2);
 
-        String Array2[] = new String[array2.size()];
-        for (int i = 0; i < Array2.length; i++) {
-            Array2[i] = array2.get(i);
-        }
-
-        for (int j = 0; j < Array1.length; j++) {
-            for (int i = j + 1; i < Array1.length; i++) {
-                if (Array1[i].compareTo(Array1[j]) < 0) {
-                    String temp = Array1[j];
-                    Array1[j] = Array1[i];
-                    Array1[i] = temp;
-                }
-
-            }
-
-        }
+        /*
+         * Sort 2 String[]
+         */
+        functions.sort(Array1, Array2);
+        
+        /*
+         * Copy String[] to ArrayList
+         */        
+        functions.copyStringArrayToArrayList(initialisaton.arrayList, Array1, Array2);
         // Return String Buffer as a string
-        return sb.toString();
+        return initialisaton.sb.toString();
     }
 }
